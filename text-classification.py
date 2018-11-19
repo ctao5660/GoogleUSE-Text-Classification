@@ -27,9 +27,19 @@ def load_data():
     splitX = int(len(shuffledX) * .8)
     splitY = int(len(shuffledY) * .8)
     return shuffledX[:splitX], shuffledY[:splitY], shuffledX[splitX:], shuffledY[splitY:]
+def get_model():
+    model = Sequential()
+    model.add(Dense(512, input_shape=(vocab_size,)))
+    model.add(Activation('relu'))
+    model.add(Dropout(0.3))
+    model.add(Dense(512))
+    model.add(Activation('relu'))
+    model.add(Dropout(0.3))
+    model.add(Dense(num_labels))
+    model.add(Activation('softmax'))
+    return model
 
 x_train, y_train, x_test, y_test = load_data()
-print(x_train)
     
 
 
