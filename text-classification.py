@@ -31,7 +31,7 @@ def get_model():
     model = Sequential()
     model.add(Dense(512, input_shape=(vocab_size,)))
     model.add(Activation('relu'))
-    model.add(Dropout(0.2))
+    model.add(Dropout(0.3))
     model.add(Dense(512))
     model.add(Activation('relu'))
     model.add(Dropout(0.3))
